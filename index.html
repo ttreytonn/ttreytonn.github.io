@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎣 Like Fish?</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js" integrity="sha512-uaz5GpnQoE6t5echKlX8P52czvsIGgLPcvlzfvRubLZ1Hp8JemUDnbUiAahbVtPb+jUVrNETuXvAhDDF/N3M4w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/addons/p5.sound.js" integrity="sha512-TU9AWtV5uUZPX8dbBAH8NQF1tSdigPRRT82vllAQ1Ke28puiqLA6ZVKxtUGlgrH6yWFnkKy+sE6luNEGH9ar0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Signika+Negative:wght@300..700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Rubik+Scribble&display=swap" rel="stylesheet">
+<style>
+#flower {
+    width: 100px;
+    height: auto;
+    top: 10vh;
+    left: 45vw;
+    z-index: 99999;
+    position: absolute;
+    animation: rotateFlower 10s linear infinite; /* Rotate animation */
+}
+
+@keyframes rotateFlower {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+#canvas {
+    border: 1.5vh solid #965A3E;
+    width: 55vw;
+    height: 97vh;
+    display: block;
+    background-color: #3e965a;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+body {   
+    background-color: #FFE5D9;
+    margin: 0;
+}
+
+#but {
+    height: 8vh;
+    width: 18vw;
+    position: absolute;
+    top: 30vh;
+    left: 2vw;
+    background-color: #965A3E;
+    color: #FFE5D9;
+    border-radius: 1.5vh;
+    padding: 2vh 4vw;
+    border: none;
+    cursor: pointer;
+    font-size: 3.5vh;
+    font-family: "Signika Negative", sans-serif;
+}
+
+#scale-shards-container {
+    position: absolute;
+    top: 3vh;
+    right: 0.3vw;
+    color: #965A3E;
+    font-size: 4.5vh;
+    font-family: "Signika Negative", sans-serif;
+    font-weight: bold;
+}
+
+#fishing-pole-level {
+    position: absolute;
+    top: 1.5vh;
+    right: 0.3vw;
+    color: #965A3E;
+    font-size: 4.5vh;
+    font-family: "Signika Negative", sans-serif;
+    font-weight: bold;
+}
+
+#like {
+    font-size: 13vh;
+    position: absolute;
+    top: 3vh;
+    left: 2vw;
+    color: #965A3E;
+    z-index: 10000;   
+    font-family: "Signika Negative", sans-serif;
+    font-weight: bold;
+    user-select: none;
+}
+
+#fish {
+    font-size: 13vh;
+    position: absolute;
+    top: 13.5vh;
+    left: 2vw;
+    color: #965A3E;
+    z-index: 10000;   
+    font-family: "Rubik Scribble", system-ui;
+    font-weight: bold;
+    user-select: none;
+}
+
+#questionmark {
+    position: absolute;
+    top: -7.5vh;
+    left: 10.5vw;
+    z-index: 10;
+    user-select: none;
+}
+
+#upgrade-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 999999;
+    overflow: auto;
+}
+
+#upgrade-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #FFE5D9;
+    padding: 4vh 6vw;
+    border-radius: 2vh;
+    max-width: 80vw;
+    color: #965A3E;
+    font-family: "Signika Negative", sans-serif;
+    font-weight: bold;
+}
+
+#close-upgrade-menu {
+    position: absolute;
+    top: 2vh;
+    right: 3vw;
+    cursor: pointer;
+}
+
+#upgrade-content button {
+    background-color: #FFE5D9;
+    border: 1vh solid;
+    color: #965A3E;
+    border-radius: 1.5vh;
+    padding: 2vh 4vw;
+    cursor: pointer;
+    font-size: 3.5vh;
+    font-family: "Signika Negative", sans-serif;
+    animation: blink 1s infinite; /* Blink animation */
+    font-weight: bold;
+}
+
+.alert {
+    position: fixed;
+    top: 4vh;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #965A3E;
+    padding: 2vh 4vw;
+    border-radius: 1vh;
+    z-index: 9999999;
+    opacity: 1;
+    transition: opacity 1s ease;
+    font-size: 2vw;
+}
+    #shardpic{
+    position: relative;
+    top: 15px;
+    z-index: 10;
+    }
+    @keyframes blink {
+    0% {
+        border-color: #FFA94D; /* First border color */
+    }
+    50% {
+        border-color: #FFD166; /* Second border color */
+    }
+    100% {
+        border-color: #FFA94D; /* First border color */
+    }
+}
+
+
+    .fade-out {
+        opacity: 0;
+    }
+</style>
+</head>
+<body>
+    <div id="scale-shards-container">
+        <img id="shardpic" src="shard.png" alt="Image" height="50px" width="auto">
+        <span id="scale-shards">Scale Shards: 0</span>
+    </div>
+    <div id="fishing-pole-level"></div>
+<canvas id="canvas" width="800" height="635"></canvas>
+
+<!-- Upgrade menu -->
+<div id="upgrade-menu">
+    <div id="upgrade-content">
+        <span id="close-upgrade-menu" onclick="closeUpgradeMenu()">X</span>
+        <h2>Upgrade your pole</h2>
+        <p>Cost: <span id="upgrade-cost"></span> scale shards</p>
+        <button onclick="buyFishingPoleUpgrade()">Upgrade</button>
+    </div>
+</div>
+
+<!-- New element with the name "Like Fish?" -->
+<div id="like">Like</div>
+<div id="fish">Fish</div>
+<div id="questionmark"><img height="225vh" width="auto" src="question.png"></div>
+<img id="flower" src="flower.png" alt="Image">
+
+
+<!-- Alert container -->
+<div id="alert-container"></div>
+
+<button id="but" onclick="exampleBuyUpgrade()">Upgrade Pole</button>
+
+<script>
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+
+ // Load background music
+ let bgMusic;
+
+ function preload() {
+    bgMusic = loadSound('music.mp3');
+    bgMusic.setVolume(0.1); // Adjust the volume for the background music here
+
+    clickSound = loadSound('splash.mp3');
+    clickSound.setVolume(1.0); // Adjust the volume for the splash sound effect here
+}
+
+
+function setup() {
+    // Play background music in a loop
+    bgMusic.loop();
+}
+
+// Initialize game variables
+
+let fishing = false;
+let hooked = false;
+let fishCaught = 0;
+let hookPos = { x: canvas.width / 2, y: canvas.height / 2 };
+let fishTypes = [
+    { color: 'blue', points: 1000000 },
+    { color: 'green', points: 2 },
+    { color: 'orange', points: 3 },
+    { color: 'purple', points: 5 },
+    { color: 'red', points: 8 }, // Level 5
+    { color: 'yellow', points: 10 }, // Level 6
+    { color: 'pink', points: 12 }, // Level 7
+    { color: 'cyan', points: 15 }, // Level 8
+    { color: 'magenta', points: 18 }, // Level 9
+    { color: 'brown', points: 20 }, // Level 10
+    { color: 'maroon', points: 22 }, // Level 11
+    { color: 'navy', points: 25 }, // Level 12
+    { color: 'teal', points: 28 }, // Level 13
+    { color: 'olive', points: 30 }, // Level 14
+    { color: 'lime', points: 33 }, // Level 15
+    { color: 'coral', points: 36 }, // Level 16
+    { color: 'gold', points: 40 }, // Level 17
+    { color: 'silver', points: 45 }, // Level 18
+    { color: 'bronze', points: 50 }, // Level 19
+    { color: 'platinum', points: 55 } // Level 20
+]; 
+let fishes = [];
+let scaleShards = 0;
+let fishingPoleLevel = 0; // Current fishing pole level
+const numFish = 5;
+const fishSpeed = 2; // Adjust fish speed as needed
+const hookRadius = 20; // Adjust the hook radius as needed
+// const shardsNeededForUpgrade = 5;
+
+// Event listeners
+canvas.addEventListener('mousedown', startFishing);
+canvas.addEventListener('mouseup', stopFishing);
+
+// Cooldown variables
+const cooldownDuration = 3000; 
+let lastFishingTime = 0;
+
+function startFishing(event) {
+    const currentTime = Date.now();
+    if (currentTime - lastFishingTime >= cooldownDuration) {
+        if (!fishing && !hooked) {
+            fishing = true;
+            const rect = canvas.getBoundingClientRect();
+            const scaleX = canvas.width / rect.width;
+            const scaleY = canvas.height / rect.height;
+            const offsetX = rect.left;
+            const offsetY = rect.top;
+            const mouseX = (event.clientX - offsetX) * scaleX;
+            const mouseY = (event.clientY - offsetY) * scaleY;
+            hookPos.x = mouseX;
+            hookPos.y = mouseY;
+            hook();
+            lastFishingTime = currentTime;
+            // Trigger click sound
+            clickSound.play(); // Play the click sound when the user starts fishing
+        }
+    } else {
+        showAlert("¡WAIT! Cooldown still active ˙◠˙");
+    }
+}
+
+
+function stopFishing() {                                    
+    fishing = false;
+}
+
+function hook() {
+    if (fishing) {
+        hooked = true;
+        setTimeout(() => {
+            let chance = Math.random(); // Random value between 0 and 1
+            let fishIndex = fishes.findIndex(fish => distance(hookPos.x, hookPos.y, fish.x, fish.y) < hookRadius);
+
+            if (fishIndex !== -1) {
+                let fish = fishes[fishIndex];
+                let catchProbability = getCatchProbability(fish.color, fishingPoleLevel);
+
+                if (Math.random() <= catchProbability) {
+                    fishCaught += fish.points;
+                    scaleShards += fish.points; // Grant scale shards when a fish is caught
+                    fishes.splice(fishIndex, 1); // Remove caught fish
+                    fishes.push(generateFish()); // Generate a new fish
+                }
+            }
+
+            hooked = false;
+        }, 2000); // Adjust the wait time as needed
+    }
+}
+
+function getFishingPoleUpgradeCost() {
+    // Add 10 shards to the base cost starting from level 1
+    return fishingPoleLevel * 10;
+}
+
+
+
+
+function buyFishingPoleUpgrade() {
+    const upgradeCost = getFishingPoleUpgradeCost();
+    if (scaleShards >= upgradeCost) {
+        fishingPoleLevel++;
+        scaleShards -= upgradeCost;
+        showAlert("You upgraded your pole");
+
+        // Update the displayed upgrade cost after upgrading
+        document.getElementById('upgrade-cost').textContent = getFishingPoleUpgradeCost();
+    } else {
+        showAlert("You don't have enough scale shards ˙◠˙");
+    }
+}
+
+function generateFish() {
+    let availableFishTypes = [];
+    
+    // Determine available fish types based on the fishing pole level
+    if (fishingPoleLevel >= 0 && fishingPoleLevel < 10) {
+        availableFishTypes = fishTypes.slice(0, 5); // Unlock fish levels 1 to 10
+    } else if (fishingPoleLevel >= 10 && fishingPoleLevel < 25) {
+        availableFishTypes = fishTypes.slice(0, 10); // Unlock fish levels 1 to 10
+    } else if (fishingPoleLevel >= 25 && fishingPoleLevel < 30) {
+        availableFishTypes = fishTypes.slice(0, 15); // Unlock fish levels 1 to 15
+    } else if (fishingPoleLevel >= 30) {
+        availableFishTypes = fishTypes; // Unlock all fish levels
+    }
+    
+    let randomFishIndex = Math.floor(Math.random() * availableFishTypes.length);
+    let fishType = availableFishTypes[randomFishIndex];
+    let speedMultiplier = 1; // Default speed multiplier
+
+    // Adjust speed multiplier based on fish color (difficulty level)
+    switch (fishType.color) {
+        case 'blue':
+            speedMultiplier = 1.0;
+            break;
+        case 'green':
+            speedMultiplier = 1.1;
+            break;
+        case 'orange':
+            speedMultiplier = 1.2;
+            break;
+        case 'purple':
+            speedMultiplier = 1.3;
+            break;
+        case 'red':
+            speedMultiplier = 1.5; // Level 5
+            break;
+        case 'yellow':
+            speedMultiplier = 1.7; // Level 6
+            break;
+        case 'pink':
+            speedMultiplier = 2.0; // Level 7
+            break;
+        case 'cyan':
+            speedMultiplier = 2.2; // Level 8
+            break;
+        case 'magenta':
+            speedMultiplier = 2.5; // Level 9
+            break;
+        case 'brown':
+            speedMultiplier = 2.7; // Level 10
+            break;
+        case 'maroon':
+            speedMultiplier = 3.0; // Level 11
+            break;
+        case 'navy':
+            speedMultiplier = 3.2; // Level 12
+            break;
+        case 'teal':
+            speedMultiplier = 3.5; // Level 13
+            break;
+        case 'olive':
+            speedMultiplier = 3.7; // Level 14
+            break;
+        case 'lime':
+            speedMultiplier = 4.0; // Level 15
+            break;
+        case 'coral':
+            speedMultiplier = 4.2; // Level 16
+            break;
+        case 'gold':
+            speedMultiplier = 4.5; // Level 17
+            break;
+        case 'silver':
+            speedMultiplier = 4.7; // Level 18
+            break;
+        case 'bronze':
+            speedMultiplier = 5.0; // Level 19
+            break;
+        case 'platinum':
+            speedMultiplier = 5.2; // Level 20
+            break;
+        default:
+            speedMultiplier = 1.0; // Default speed multiplier
+            break;
+    }
+
+    return {
+        x: Math.random() * canvas.width,
+        y: (Math.random() * (canvas.height * 3 / 4)) + (canvas.height / 4),
+        color: fishType.color,
+        points: fishType.points,
+        speedX: (Math.random() - 0.5) * fishSpeed * speedMultiplier, // Adjust speed based on multiplier
+        speedY: (Math.random() - 0.5) * fishSpeed * speedMultiplier // Adjust speed based on multiplier
+    };
+}
+
+
+function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+     // Draw blue background for bottom 3/4 of the canvas
+    ctx.fillStyle = '#b1e6ff';
+    ctx.fillRect(0, canvas.height / 4, canvas.width, canvas.height * 3 / 4);
+    // Draw fish
+    fishes.forEach(fish => {
+        if (!hooked || distance(hookPos.x, hookPos.y, fish.x, fish.y) >= hookRadius) {
+            // Update fish position only if not hooked or not close to the hook
+            fish.x += fish.speedX;
+            fish.y += fish.speedY;
+
+            // Boundary check, wrap around canvas
+            if (fish.x < 0) fish.x = canvas.width;
+            if (fish.x > canvas.width) fish.x = 0;
+            if (fish.y < canvas.height / 4) {
+                fish.y = canvas.height / 4; // Limit the fish to the bottom 3/4 of the canvas
+                fish.speedY *= -1; // Reverse the vertical direction of the fish
+            }
+            if (fish.y > canvas.height) {
+                fish.y = canvas.height;
+                fish.speedY *= -1; // Reverse the vertical direction of the fish
+            }
+        }
+
+        ctx.fillStyle = fish.color;
+        ctx.beginPath();
+        ctx.arc(fish.x, fish.y, 10, 0, Math.PI * 2);
+        ctx.fill();
+    });
+
+    // Draw hook
+    if (fishing || hooked) {
+        ctx.fillStyle = 'black';
+        ctx.beginPath();
+        ctx.moveTo(hookPos.x - 5, hookPos.y + 5);
+        ctx.lineTo(hookPos.x, hookPos.y - 10);
+        ctx.lineTo(hookPos.x + 5, hookPos.y + 5);
+        ctx.closePath();
+        ctx.fill();
+}
+
+    // Update the position of Scale Shards and Fishing Pole Level
+    const scaleShardsElement = document.getElementById('scale-shards');
+    const fishingPoleLevelElement = document.getElementById('fishing-pole-level');
+    scaleShardsElement.textContent ='Scale Shards: ' + scaleShards;
+    fishingPoleLevelElement.textContent = 'Extra luck: +' + fishingPoleLevel * 2 +"%";
+}
+
+function openUpgradeMenu() {
+    document.getElementById('upgrade-menu').style.display = 'block';
+    document.getElementById('upgrade-cost').textContent = getFishingPoleUpgradeCost();
+}
+
+function closeUpgradeMenu() {
+    document.getElementById('upgrade-menu').style.display = 'none';
+}
+
+function gameLoop() {
+    draw();
+    requestAnimationFrame(gameLoop);
+}
+
+function distance(x1, y1, x2, y2) {
+    return Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
+}
+
+function getCatchProbability(fishColor, fishingPoleLevel) {
+    // Adjust catch probability based on fish type and fishing pole level
+    let baseProbability;
+    switch (fishColor) {
+        case 'blue':
+            baseProbability = 0.89;
+            break;
+        case 'green':
+            baseProbability = 0.75;
+            break;
+        case 'orange':
+            baseProbability = 0.30;
+            break;
+        case 'purple':
+            baseProbability = 0.10;
+            break;
+        case 'red':
+            baseProbability = 0.05; // Level 5
+            break;
+        case 'yellow':
+            baseProbability = 0.03; // Level 6
+            break;
+        case 'pink':
+            baseProbability = 0.02; // Level 7
+            break;
+        case 'cyan':
+            baseProbability = 0.015; // Level 8
+            break;
+        case 'magenta':
+            baseProbability = 0.012; // Level 9
+            break;
+        case 'brown':
+            baseProbability = 0.01; // Level 10
+            break;
+        case 'maroon':
+            baseProbability = 0.009; // Level 11
+            break;
+        case 'navy':
+            baseProbability = 0.008; // Level 12
+            break;
+        case 'teal':
+            baseProbability = 0.007; // Level 13
+            break;
+        case 'olive':
+            baseProbability = 0.006; // Level 14
+            break;
+        case 'lime':
+            baseProbability = 0.005; // Level 15
+            break;
+        case 'coral':
+            baseProbability = 0.004; // Level 16
+            break;
+        case 'gold':
+            baseProbability = 0.003; // Level 17
+            break;
+        case 'silver':
+            baseProbability = 0.002; // Level 18
+            break;
+        case 'bronze':
+            baseProbability = 0.001; // Level 19
+            break;
+        case 'platinum':
+            baseProbability = 0.0005; // Level 20
+            break;
+        default:
+            baseProbability = 0.5;
+            break;
+    }
+    return baseProbability + fishingPoleLevel * 0.02;
+}
+
+
+function showAlert(message) {
+    const alertContainer = document.getElementById('alert-container');
+    const alertElement = document.createElement('div');
+    alertElement.classList.add('alert');
+    alertElement.textContent = message;
+    alertContainer.appendChild(alertElement);
+
+    // Automatically remove the alert after 3 seconds
+    setTimeout(() => {
+        alertElement.classList.add('fade-out');
+        setTimeout(() => {
+            alertElement.remove();
+        }, 1000); // The fade-out animation duration is 1 second
+    }, 3000); // Show the alert for 3 seconds
+}
+
+function exampleBuyUpgrade() {
+    openUpgradeMenu();
+}
+
+// Initial setup
+for (let i = 0; i < numFish; i++) {
+    fishes.push(generateFish());
+}
+
+gameLoop();
+</script>
+</body>
+</html>
