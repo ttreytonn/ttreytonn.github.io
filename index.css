@@ -1,0 +1,185 @@
+
+#flower {
+    width: 100px;
+    height: auto;
+    top: 10vh;
+    left: 45vw;
+    z-index: 99999;
+    position: absolute;
+    animation: rotateFlower 10s linear infinite; /* Rotate animation */
+}
+
+@keyframes rotateFlower {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+#canvas {
+    border: 1.5vh solid #965A3E;
+    width: 55vw;
+    height: 97vh;
+    display: block;
+    background-color: #3e965a;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+body {   
+    background-color: #FFE5D9;
+    margin: 0;
+}
+
+#but {
+    height: 8vh;
+    width: 18vw;
+    position: absolute;
+    top: 30vh;
+    left: 2vw;
+    background-color: #965A3E;
+    color: #FFE5D9;
+    border-radius: 1.5vh;
+    padding: 2vh 4vw;
+    border: none;
+    cursor: pointer;
+    font-size: 3.5vh;
+    font-family: "Signika Negative", sans-serif;
+}
+
+#scale-shards-container {
+    position: absolute;
+    top: 3vh;
+    right: 0.3vw;
+    color: #965A3E;
+    font-size: 4.5vh;
+    font-family: "Signika Negative", sans-serif;
+    font-weight: bold;
+}
+
+#fishing-pole-level {
+    position: absolute;
+    top: 1.5vh;
+    right: 0.3vw;
+    color: #965A3E;
+    font-size: 4.5vh;
+    font-family: "Signika Negative", sans-serif;
+    font-weight: bold;
+}
+
+#like {
+    font-size: 13vh;
+    position: absolute;
+    top: 3vh;
+    left: 2vw;
+    color: #965A3E;
+    z-index: 10000;   
+    font-family: "Signika Negative", sans-serif;
+    font-weight: bold;
+    user-select: none;
+}
+
+#fish {
+    font-size: 13vh;
+    position: absolute;
+    top: 13.5vh;
+    left: 2vw;
+    color: #965A3E;
+    z-index: 10000;   
+    font-family: "Rubik Scribble", system-ui;
+    font-weight: bold;
+    user-select: none;
+}
+
+#questionmark {
+    position: absolute;
+    top: -7.5vh;
+    left: 10.5vw;
+    z-index: 10;
+    user-select: none;
+}
+
+#upgrade-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 999999;
+    overflow: auto;
+}
+
+#upgrade-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #FFE5D9;
+    padding: 4vh 6vw;
+    border-radius: 2vh;
+    max-width: 80vw;
+    color: #965A3E;
+    font-family: "Signika Negative", sans-serif;
+    font-weight: bold;
+}
+
+#close-upgrade-menu {
+    position: absolute;
+    top: 2vh;
+    right: 3vw;
+    cursor: pointer;
+}
+
+#upgrade-content button {
+    background-color: #FFE5D9;
+    border: 1vh solid;
+    color: #965A3E;
+    border-radius: 1.5vh;
+    padding: 2vh 4vw;
+    cursor: pointer;
+    font-size: 3.5vh;
+    font-family: "Signika Negative", sans-serif;
+    animation: blink 1s infinite; /* Blink animation */
+    font-weight: bold;
+}
+
+.alert {
+    position: fixed;
+    top: 4vh;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #965A3E;
+    padding: 2vh 4vw;
+    border-radius: 1vh;
+    z-index: 9999999;
+    opacity: 1;
+    transition: opacity 1s ease;
+    font-size: 2vw;
+}
+    #shardpic{
+    position: relative;
+    top: 15px;
+    z-index: 10;
+    }
+    @keyframes blink {
+    0% {
+        border-color: #FFA94D; /* First border color */
+    }
+    50% {
+        border-color: #FFD166; /* Second border color */
+    }
+    100% {
+        border-color: #FFA94D; /* First border color */
+    }
+}
+
+
+    .fade-out {
+        opacity: 0;
+    }
