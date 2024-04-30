@@ -12,192 +12,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Rubik+Scribble&display=swap" rel="stylesheet">
-<style>
-#flower {
-    width: 100px;
-    height: auto;
-    top: 10vh;
-    left: 45vw;
-    z-index: 99999;
-    position: absolute;
-    animation: rotateFlower 10s linear infinite; /* Rotate animation */
-}
+<link rel="stylesheet" type="text/css" href="index.css" />
 
-@keyframes rotateFlower {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-#canvas {
-    border: 1.5vh solid #965A3E;
-    width: 55vw;
-    height: 97vh;
-    display: block;
-    background-color: #3e965a;
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1;
-}
-
-body {   
-    background-color: #FFE5D9;
-    margin: 0;
-}
-
-#but {
-    height: 8vh;
-    width: 18vw;
-    position: absolute;
-    top: 30vh;
-    left: 2vw;
-    background-color: #965A3E;
-    color: #FFE5D9;
-    border-radius: 1.5vh;
-    padding: 2vh 4vw;
-    border: none;
-    cursor: pointer;
-    font-size: 3.5vh;
-    font-family: "Signika Negative", sans-serif;
-}
-
-#scale-shards-container {
-    position: absolute;
-    top: 3vh;
-    right: 0.3vw;
-    color: #965A3E;
-    font-size: 4.5vh;
-    font-family: "Signika Negative", sans-serif;
-    font-weight: bold;
-}
-
-#fishing-pole-level {
-    position: absolute;
-    top: 1.5vh;
-    right: 0.3vw;
-    color: #965A3E;
-    font-size: 4.5vh;
-    font-family: "Signika Negative", sans-serif;
-    font-weight: bold;
-}
-
-#like {
-    font-size: 13vh;
-    position: absolute;
-    top: 3vh;
-    left: 2vw;
-    color: #965A3E;
-    z-index: 10000;   
-    font-family: "Signika Negative", sans-serif;
-    font-weight: bold;
-    user-select: none;
-}
-
-#fish {
-    font-size: 13vh;
-    position: absolute;
-    top: 13.5vh;
-    left: 2vw;
-    color: #965A3E;
-    z-index: 10000;   
-    font-family: "Rubik Scribble", system-ui;
-    font-weight: bold;
-    user-select: none;
-}
-
-#questionmark {
-    position: absolute;
-    top: -7.5vh;
-    left: 10.5vw;
-    z-index: 10;
-    user-select: none;
-}
-
-#upgrade-menu {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.8);
-    z-index: 999999;
-    overflow: auto;
-}
-
-#upgrade-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #FFE5D9;
-    padding: 4vh 6vw;
-    border-radius: 2vh;
-    max-width: 80vw;
-    color: #965A3E;
-    font-family: "Signika Negative", sans-serif;
-    font-weight: bold;
-}
-
-#close-upgrade-menu {
-    position: absolute;
-    top: 2vh;
-    right: 3vw;
-    cursor: pointer;
-}
-
-#upgrade-content button {
-    background-color: #FFE5D9;
-    border: 1vh solid;
-    color: #965A3E;
-    border-radius: 1.5vh;
-    padding: 2vh 4vw;
-    cursor: pointer;
-    font-size: 3.5vh;
-    font-family: "Signika Negative", sans-serif;
-    animation: blink 1s infinite; /* Blink animation */
-    font-weight: bold;
-}
-
-.alert {
-    position: fixed;
-    top: 4vh;
-    left: 50%;
-    transform: translateX(-50%);
-    color: #965A3E;
-    padding: 2vh 4vw;
-    border-radius: 1vh;
-    z-index: 9999999;
-    opacity: 1;
-    transition: opacity 1s ease;
-    font-size: 2vw;
-}
-    #shardpic{
-    position: relative;
-    top: 15px;
-    z-index: 10;
-    }
-    @keyframes blink {
-    0% {
-        border-color: #FFA94D; /* First border color */
-    }
-    50% {
-        border-color: #FFD166; /* Second border color */
-    }
-    100% {
-        border-color: #FFA94D; /* First border color */
-    }
-}
-
-
-    .fade-out {
-        opacity: 0;
-    }
-</style>
 </head>
 <body>
     <div id="scale-shards-container">
@@ -221,13 +37,22 @@ body {
 <div id="like">Like</div>
 <div id="fish">Fish</div>
 <div id="questionmark"><img height="225vh" width="auto" src="question.png"></div>
-<img id="flower" src="flower.png" alt="Image">
+<img id="flower1" src="flower.png" alt="Image">
+<img id="flower2" src="flower.png" alt="Image">
+<img id="flower3" src="flower.png" alt="Image">
+<img id="flower4" src="flower.png" alt="Image">
+<img id="flower5" src="flower.png" alt="Image">
+<img id="flower6" src="flower.png" alt="Image">
+<img id="flower7" src="flower.png" alt="Image">
+
 
 
 <!-- Alert container -->
 <div id="alert-container"></div>
 
 <button id="but" onclick="exampleBuyUpgrade()">Upgrade Pole</button>
+<a href="start.html" id="home-button">Home</a>
+
 
 <script>
 const canvas = document.getElementById('canvas');
@@ -238,10 +63,17 @@ const ctx = canvas.getContext('2d');
 
  function preload() {
     bgMusic = loadSound('music.mp3');
-    bgMusic.setVolume(0.1); // Adjust the volume for the background music here
+    bgMusic.setVolume(0.3); // Adjust the volume for the background music here
 
     clickSound = loadSound('splash.mp3');
     clickSound.setVolume(1.0); // Adjust the volume for the splash sound effect here
+
+    clickSound2 = loadSound("levelup.mp3")
+    clickSound2.setVolume(1.0)
+
+    clickSound3 = loadSound("ping.mp3")
+    clickSound3.setVolume(1.0)
+
 }
 
 
@@ -257,27 +89,27 @@ let hooked = false;
 let fishCaught = 0;
 let hookPos = { x: canvas.width / 2, y: canvas.height / 2 };
 let fishTypes = [
-    { color: 'blue', points: 1000000 },
-    { color: 'green', points: 2 },
-    { color: 'orange', points: 3 },
-    { color: 'purple', points: 5 },
-    { color: 'red', points: 8 }, // Level 5
-    { color: 'yellow', points: 10 }, // Level 6
-    { color: 'pink', points: 12 }, // Level 7
-    { color: 'cyan', points: 15 }, // Level 8
-    { color: 'magenta', points: 18 }, // Level 9
-    { color: 'brown', points: 20 }, // Level 10
-    { color: 'maroon', points: 22 }, // Level 11
-    { color: 'navy', points: 25 }, // Level 12
-    { color: 'teal', points: 28 }, // Level 13
-    { color: 'olive', points: 30 }, // Level 14
-    { color: 'lime', points: 33 }, // Level 15
-    { color: 'coral', points: 36 }, // Level 16
-    { color: 'gold', points: 40 }, // Level 17
-    { color: 'silver', points: 45 }, // Level 18
-    { color: 'bronze', points: 50 }, // Level 19
-    { color: 'platinum', points: 55 } // Level 20
-]; 
+    { color: '#082567', points: 1000000 },  // Sapphire Blue
+    { color: '#50C878', points: 2 },        // Emerald Green
+    { color: '#FF8C00', points: 3 },        // Goldfish Orange
+    { color: '#9966CC', points: 4 },        // Amethyst Purple
+    { color: '#E0115F', points: 5 },        // Ruby Red
+    { color: '#FFD700', points: 10 },       // Sunshine Yellow
+    { color: '#FF6D70', points: 12 },       // Coral Pink
+    { color: '#00FFFF', points: 14 },       // Aqua Blue
+    { color: '#FF7F50', points: 16 },       // Coral Orange
+    { color: '#007FFF', points: 18 },       // Azure Blue
+    { color: '#D2691E', points: 24 },       // Coral Reef Brown
+    { color: '#000080', points: 26 },       // Deep Sea Blue
+    { color: '#008080', points: 28 },       // Oceanic Teal
+    { color: '#39FF14', points: 30 },       // Neon Green
+    { color: '#F28500', points: 32 },       // Tangerine Orange
+    { color: '#7FFFD4', points: 36 },       // Seafoam Green
+    { color: '#FFF44F', points: 40 },       // Lemon Yellow
+    { color: '#F8F8FF', points: 45 },       // Pearl White
+    { color: '#9966CC', points: 50 },       // Amethyst Purple (Duplicate)
+    { color: '#39FF14', points: 55 }        // Neon Green (Duplicate)
+];
 let fishes = [];
 let scaleShards = 0;
 let fishingPoleLevel = 0; // Current fishing pole level
@@ -335,6 +167,7 @@ function hook() {
                 let catchProbability = getCatchProbability(fish.color, fishingPoleLevel);
 
                 if (Math.random() <= catchProbability) {
+                    clickSound3.play()
                     fishCaught += fish.points;
                     scaleShards += fish.points; // Grant scale shards when a fish is caught
                     fishes.splice(fishIndex, 1); // Remove caught fish
@@ -361,6 +194,7 @@ function buyFishingPoleUpgrade() {
         fishingPoleLevel++;
         scaleShards -= upgradeCost;
         showAlert("You upgraded your pole");
+        clickSound2.play()
 
         // Update the displayed upgrade cost after upgrading
         document.getElementById('upgrade-cost').textContent = getFishingPoleUpgradeCost();
@@ -389,70 +223,71 @@ function generateFish() {
 
     // Adjust speed multiplier based on fish color (difficulty level)
     switch (fishType.color) {
-        case 'blue':
-            speedMultiplier = 1.0;
-            break;
-        case 'green':
-            speedMultiplier = 1.1;
-            break;
-        case 'orange':
-            speedMultiplier = 1.2;
-            break;
-        case 'purple':
-            speedMultiplier = 1.3;
-            break;
-        case 'red':
-            speedMultiplier = 1.5; // Level 5
-            break;
-        case 'yellow':
-            speedMultiplier = 1.7; // Level 6
-            break;
-        case 'pink':
-            speedMultiplier = 2.0; // Level 7
-            break;
-        case 'cyan':
-            speedMultiplier = 2.2; // Level 8
-            break;
-        case 'magenta':
-            speedMultiplier = 2.5; // Level 9
-            break;
-        case 'brown':
-            speedMultiplier = 2.7; // Level 10
-            break;
-        case 'maroon':
-            speedMultiplier = 3.0; // Level 11
-            break;
-        case 'navy':
-            speedMultiplier = 3.2; // Level 12
-            break;
-        case 'teal':
-            speedMultiplier = 3.5; // Level 13
-            break;
-        case 'olive':
-            speedMultiplier = 3.7; // Level 14
-            break;
-        case 'lime':
-            speedMultiplier = 4.0; // Level 15
-            break;
-        case 'coral':
-            speedMultiplier = 4.2; // Level 16
-            break;
-        case 'gold':
-            speedMultiplier = 4.5; // Level 17
-            break;
-        case 'silver':
-            speedMultiplier = 4.7; // Level 18
-            break;
-        case 'bronze':
-            speedMultiplier = 5.0; // Level 19
-            break;
-        case 'platinum':
-            speedMultiplier = 5.2; // Level 20
-            break;
-        default:
-            speedMultiplier = 1.0; // Default speed multiplier
-            break;
-    }
+    case '#082567':
+        speedMultiplier = 1.0; // Sapphire Blue
+        break;
+    case '#50C878':
+        speedMultiplier = 1.1; // Emerald Green
+        break;
+    case '#FF8C00':
+        speedMultiplier = 1.2; // Goldfish Orange
+        break;
+    case '#9966CC':
+        speedMultiplier = 1.3; // Amethyst Purple
+        break;
+    case '#E0115F':
+        speedMultiplier = 1.5; // Ruby Red (Level 5)
+        break;
+    case '#FFD700':
+        speedMultiplier = 1.7; // Sunshine Yellow (Level 6)
+        break;
+    case '#FF6D70':
+        speedMultiplier = 2.0; // Coral Pink (Level 7)
+        break;
+    case '#00FFFF':
+        speedMultiplier = 2.2; // Aqua Blue (Level 8)
+        break;
+    case '#FF7F50':
+        speedMultiplier = 2.5; // Coral Orange (Level 9)
+        break;
+    case '#007FFF':
+        speedMultiplier = 2.7; // Azure Blue (Level 10)
+        break;
+    case '#D2691E':
+        speedMultiplier = 3.0; // Coral Reef Brown (Level 11)
+        break;
+    case '#000080':
+        speedMultiplier = 3.2; // Deep Sea Blue (Level 12)
+        break;
+    case '#008080':
+        speedMultiplier = 3.5; // Oceanic Teal (Level 13)
+        break;
+    case '#39FF14':
+        speedMultiplier = 3.7; // Neon Green (Level 14)
+        break;
+    case '#F28500':
+        speedMultiplier = 4.0; // Tangerine Orange (Level 15)
+        break;
+    case '#7FFFD4':
+        speedMultiplier = 4.2; // Seafoam Green (Level 16)
+        break;
+    case '#FFF44F':
+        speedMultiplier = 4.5; // Lemon Yellow (Level 17)
+        break;
+    case '#F8F8FF':
+        speedMultiplier = 4.7; // Pearl White (Level 18)
+        break;
+    case '#39FF14':
+        speedMultiplier = 5.0; // Neon Green (Duplicate - Level 19)
+        break;
+    case '#9966CC':
+        speedMultiplier = 5.2; // Amethyst Purple (Duplicate - Level 20)
+        break;
+    default:
+        speedMultiplier = 1.0; // Default speed multiplier
+        break;
+}
+
 
     return {
         x: Math.random() * canvas.width,
@@ -470,6 +305,7 @@ function draw() {
      // Draw blue background for bottom 3/4 of the canvas
     ctx.fillStyle = '#b1e6ff';
     ctx.fillRect(0, canvas.height / 4, canvas.width, canvas.height * 3 / 4);
+
     // Draw fish
     fishes.forEach(fish => {
         if (!hooked || distance(hookPos.x, hookPos.y, fish.x, fish.y) >= hookRadius) {
@@ -535,72 +371,72 @@ function distance(x1, y1, x2, y2) {
 function getCatchProbability(fishColor, fishingPoleLevel) {
     // Adjust catch probability based on fish type and fishing pole level
     let baseProbability;
-    switch (fishColor) {
-        case 'blue':
-            baseProbability = 0.89;
-            break;
-        case 'green':
-            baseProbability = 0.75;
-            break;
-        case 'orange':
-            baseProbability = 0.30;
-            break;
-        case 'purple':
-            baseProbability = 0.10;
-            break;
-        case 'red':
-            baseProbability = 0.05; // Level 5
-            break;
-        case 'yellow':
-            baseProbability = 0.03; // Level 6
-            break;
-        case 'pink':
-            baseProbability = 0.02; // Level 7
-            break;
-        case 'cyan':
-            baseProbability = 0.015; // Level 8
-            break;
-        case 'magenta':
-            baseProbability = 0.012; // Level 9
-            break;
-        case 'brown':
-            baseProbability = 0.01; // Level 10
-            break;
-        case 'maroon':
-            baseProbability = 0.009; // Level 11
-            break;
-        case 'navy':
-            baseProbability = 0.008; // Level 12
-            break;
-        case 'teal':
-            baseProbability = 0.007; // Level 13
-            break;
-        case 'olive':
-            baseProbability = 0.006; // Level 14
-            break;
-        case 'lime':
-            baseProbability = 0.005; // Level 15
-            break;
-        case 'coral':
-            baseProbability = 0.004; // Level 16
-            break;
-        case 'gold':
-            baseProbability = 0.003; // Level 17
-            break;
-        case 'silver':
-            baseProbability = 0.002; // Level 18
-            break;
-        case 'bronze':
-            baseProbability = 0.001; // Level 19
-            break;
-        case 'platinum':
-            baseProbability = 0.0005; // Level 20
-            break;
-        default:
-            baseProbability = 0.5;
-            break;
-    }
-    return baseProbability + fishingPoleLevel * 0.02;
+switch (fishColor) {
+    case '#082567':
+        baseProbability = 0.99; // Sapphire Blue
+        break;
+    case '#50C878':
+        baseProbability = 0.95; // Emerald Green
+        break;
+    case '#FF8C00':
+        baseProbability = 0.92; // Goldfish Orange
+        break;
+    case '#9966CC':
+        baseProbability = 0.90; // Amethyst Purple
+        break;
+    case '#E0115F':
+        baseProbability = 0.85; // Ruby Red (Level 5)
+        break;
+    case '#FFD700':
+        baseProbability = 0.75; // Sunshine Yellow (Level 6)
+        break;
+    case '#FF6D70':
+        baseProbability = 0.65; // Coral Pink (Level 7)
+        break;
+    case '#00FFFF':
+        baseProbability = 0.60; // Aqua Blue (Level 8)
+        break;
+    case '#FF7F50':
+        baseProbability = 0.58; // Coral Orange (Level 9)
+        break;
+    case '#007FFF':
+        baseProbability = 0.50; // Azure Blue (Level 10)
+        break;
+    case '#D2691E':
+        baseProbability = 0.45; // Coral Reef Brown (Level 11)
+        break;
+    case '#000080':
+        baseProbability = 0.4; // Deep Sea Blue (Level 12)
+        break;
+    case '#008080':
+        baseProbability = 0.30; // Oceanic Teal (Level 13)
+        break;
+    case '#39FF14':
+        baseProbability = 0.20; // Neon Green (Level 14)
+        break;
+    case '#F28500':
+        baseProbability = 0.10; // Tangerine Orange (Level 15)
+        break;
+    case '#7FFFD4':
+        baseProbability = 0.05; // Seafoam Green (Level 16)
+        break;
+    case '#FFF44F':
+        baseProbability = 0.03; // Lemon Yellow (Level 17)
+        break;
+    case '#F8F8FF':
+        baseProbability = 0.02; // Pearl White (Level 18)
+        break;
+    case '#39FF14':
+        baseProbability = 0.01; // Neon Green (Duplicate - Level 19)
+        break;
+    case '#9966CC':
+        baseProbability = 0.001; // Amethyst Purple (Duplicate - Level 20)
+        break;
+    default:
+        baseProbability = 0.5;
+        break;
+}
+return baseProbability + fishingPoleLevel * 0.02;
 }
 
 
