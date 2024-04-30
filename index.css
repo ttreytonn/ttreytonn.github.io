@@ -1,13 +1,103 @@
+#home-button {
+    height: 4vh;
+    width: 5vw;
+    position: absolute;
+    top: 1.5vh;
+    right: 1vw;
+    padding: 10px 20px;
+    background-color: #965A3E;
+    color: #FFE5D9;
+    text-decoration: none;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: "Signika Negative", sans-serif;
+    text-align: center;
+    font-size: 25px;
+}
 
-#flower {
+#home-button:hover {
+    background-color: #7B472F;
+}
+
+#flower1 {
     width: 100px;
     height: auto;
     top: 10vh;
+    left: 70vw;
+    z-index: 99999;
+    position: absolute;
+    animation: rotateFlower 10s linear infinite; /* Rotate animation */
+    user-select: none;
+}
+
+#flower2 {
+    width: 75px;
+    height: auto;
+    top: 4vh;
+    left: 70vw;
+    z-index: 99999;
+    position: absolute;
+    animation: rotateFlower 10s linear infinite; /* Rotate animation */
+    user-select: none;
+
+}
+#flower3 {
+    width: 80px;
+    height: auto;
+    top: 6.6vh;
+    left: 66.5vw;
+    z-index: 99999;
+    position: absolute;
+    animation: rotateFlower 10s linear infinite; /* Rotate animation */
+    user-select: none;
+
+}
+#flower4 {
+    width: 60px;
+    height: auto;
+    top: 3vh;
     left: 45vw;
     z-index: 99999;
     position: absolute;
     animation: rotateFlower 10s linear infinite; /* Rotate animation */
+    user-select: none;
+
 }
+#flower5 {
+    width: 85px;
+    height: auto;
+    top: 4vh;
+    left: 48vw;
+    z-index: 99999;
+    position: absolute;
+    animation: rotateFlower 10s linear infinite; /* Rotate animation */
+    user-select: none;
+
+}
+#flower6 {
+    width: 80px;
+    height: auto;
+    top: 4vh;
+    left: 25vw;
+    z-index: 99999;
+    position: absolute;
+    animation: rotateFlower 10s linear infinite; /* Rotate animation */
+    user-select: none;
+
+}
+#flower7 {
+    width: 70px;
+    height: auto;
+    top: 14vh;
+    left: 23vw;
+    z-index: 99999;
+    position: absolute;
+    animation: rotateFlower 10s linear infinite; /* Rotate animation */
+    user-select: none;
+
+}
+
 
 @keyframes rotateFlower {
     from {
@@ -22,12 +112,13 @@
     width: 55vw;
     height: 97vh;
     display: block;
-    background-color: #3e965a;
     position: absolute;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 1;
+    z-index: 2;
+    background-image: url(grass.jpg);
+
 }
 
 body {   
@@ -49,11 +140,12 @@ body {
     cursor: pointer;
     font-size: 3.5vh;
     font-family: "Signika Negative", sans-serif;
+    user-select: none;
 }
 
 #scale-shards-container {
     position: absolute;
-    top: 3vh;
+    top: 11vh;
     right: 0.3vw;
     color: #965A3E;
     font-size: 4.5vh;
@@ -63,7 +155,7 @@ body {
 
 #fishing-pole-level {
     position: absolute;
-    top: 1.5vh;
+    top: 9vh;
     right: 0.3vw;
     color: #965A3E;
     font-size: 4.5vh;
@@ -161,6 +253,7 @@ body {
     opacity: 1;
     transition: opacity 1s ease;
     font-size: 2vw;
+    background-color: #FFD166;
 }
     #shardpic{
     position: relative;
