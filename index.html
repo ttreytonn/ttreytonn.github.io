@@ -14,57 +14,55 @@
 <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Rubik+Scribble&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>Welcome to the Fishing Game</h1>
-    </header>
     <main>
-        <p>Instructions: Click on the canvas to start fishing and catch as many fish as you can!</p>
-        <button><a href="game.html">Start Fishing</a></button>
+        <div id="like2">Like Fish?</div>
+        <button id="buttt"><a href="game.html">Start Fishing</a></button>
     </main>
-    <footer>
-        <p>Developed by Treyton Okuda</p>
-    </footer>
 </body>
 </html>
 <style>
-    body {
+body {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(desyivy-b1fb1a7f-f6e2-49c5-a527-8184ec8f734a.gif);
+    overflow: hidden;
+
+    
+}
+
+#like2 {
+    position: relative;
+    font-size: 12vh;
+    top: 20vh;
+    left: 40%;
+    color: #965A3E;
+    z-index: 10000;   
     font-family: "Signika Negative", sans-serif;
-    background-color: #FFE5D9;
-    margin: 0;
-    padding: 0;
+    font-weight: 900;
+    user-select: none;
+    text-shadow: #FFE5D9 0px 0 10px;
 }
 
-header {
-    text-align: center;
-    padding: 20px 0;
-}
 
-h1 {
-    font-family: 'Dosis', sans-serif;
-    font-size: 2.5em;
-    color: #2e3131;
-}
 
-main {
-    text-align: center;
-    padding: 20px;
-}
-
-p {
-    font-size: 1.2em;
-    color: #2e3131;
-}
-
-button {
+#buttt {
+    text-shadow: #FFE5D9 0px 0 10px;
+    height: 9vh;
+    width: 9vw;
+    position: absolute;
+    top: 68vh;
+    left: 38vw;
     background-color: #965A3E;
     border: none;
-    padding: 10px 20px;
-    font-size: 1.2em;
+    font-size: 18px;
     color: #FFE5D9;
     cursor: pointer;
     transition: background-color 0.3s ease;
     text-decoration: none;
     font-family: "Signika Negative", sans-serif;
+    text-align: center;
+    border-radius: 15px;
+    user-select: none;
 
 }
 a:link, a:visited {
@@ -72,17 +70,8 @@ a:link, a:visited {
   color: #FFE5D9;
 }
 
-button:hover {
+#buttt:hover {
     background-color: #7B472F;
-}
-
-footer {
-    text-align: center;
-    padding: 20px 0;
-}
-
-footer p {
-    color: #2e3131;
 }
 
 </style>

@@ -1,3 +1,14 @@
+#directions{
+    width: 20vw;
+    position: absolute;
+    bottom: 2.5vh;
+    right: 0.6vw;
+    color: #965A3E;
+    font-size: 3.5vh;
+    font-family: "Signika Negative", sans-serif;
+    font-weight: bold;
+    text-align: left;
+}
 #home-button {
     height: 4vh;
     width: 5vw;
@@ -14,6 +25,7 @@
     font-family: "Signika Negative", sans-serif;
     text-align: center;
     font-size: 25px;
+    user-select: none;
 }
 
 #home-button:hover {
@@ -143,6 +155,23 @@ body {
     user-select: none;
 }
 
+#fishin {
+    height: 8vh;
+    width: 18vw;
+    position: absolute;
+    top: 40vh;
+    left: 2vw;
+    background-color: #965A3E;
+    color: #FFE5D9;
+    border-radius: 1.5vh;
+    padding: 2vh 4vw;
+    border: none;
+    cursor: pointer;
+    font-size: 3.5vh;
+    font-family: "Signika Negative", sans-serif;
+    user-select: none;
+}
+
 #scale-shards-container {
     position: absolute;
     top: 11vh;
@@ -207,6 +236,18 @@ body {
     overflow: auto;
 }
 
+#upgrade-in {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 999999;
+    overflow: auto;
+}
+
 #upgrade-content {
     position: absolute;
     top: 50%;
@@ -220,8 +261,32 @@ body {
     font-family: "Signika Negative", sans-serif;
     font-weight: bold;
 }
+#upgrade-ind {
+    font-size: 3vh;
+    height: 70vh;
+    width: 70vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #FFE5D9;
+    padding: 4vh 6vw;
+    border-radius: 2vh;
+    color: #965A3E;
+    font-family: "Signika Negative", sans-serif;
+    display: flex; /* Set display to flex */
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    gap: 20px;
+}
 
 #close-upgrade-menu {
+    position: absolute;
+    top: 2vh;
+    right: 3vw;
+    cursor: pointer;
+}
+#close-in {
+    font-size: 50px;
     position: absolute;
     top: 2vh;
     right: 3vw;
@@ -275,4 +340,84 @@ body {
 
     .fade-out {
         opacity: 0;
+    }
+
+    #SapphireBlue {
+        color: #082567; /* Set color for Sapphire Blue */
+    }
+    
+    #EmeraldGreen {
+        color: #50C878; /* Set color for Emerald Green */
+    }
+    
+    #GoldfishOrange {
+        color: #FF8C00; /* Set color for Goldfish Orange */
+    }
+    
+    #AmethystPurple {
+        color: #9966CC; /* Set color for Amethyst Purple */
+    }
+    
+    #RubyRed {
+        color: #E0115F; /* Set color for Ruby Red */
+    }
+    
+    #SunshineYellow {
+        color: #FFD700; /* Set color for Sunshine Yellow */
+    }
+    
+    #CoralPink {
+        color: #FF6D70; /* Set color for Coral Pink */
+    }
+    
+    #AquaBlue {
+        color: #00FFFF; /* Set color for Aqua Blue */
+    }
+    
+    #CoralOrange {
+        color: #FF7F50; /* Set color for Coral Orange */
+    }
+    
+    #AzureBlue {
+        color: #007FFF; /* Set color for Azure Blue */
+    }
+    
+    #CoralReefBrown {
+        color: #D2691E; /* Set color for Coral Reef Brown */
+    }
+    
+    #DeepSeaBlue {
+        color: #000080; /* Set color for Deep Sea Blue */
+    }
+    
+    #OceanicTeal {
+        color: #008080; /* Set color for Oceanic Teal */
+    }
+    
+    #NeonGreen {
+        color: #39FF14; /* Set color for Neon Green */
+    }
+    
+    #TangerineOrange {
+        color: #F28500; /* Set color for Tangerine Orange */
+    }
+    
+    #SeafoamGreen {
+        color: #7FFFD4; /* Set color for Seafoam Green */
+    }
+    
+    #LemonYellow {
+        color: #FFF44F; /* Set color for Lemon Yellow */
+    }
+    
+    #PearlWhite {
+        color: #F8F8FF; /* Set color for Pearl White */
+    }
+    
+    #DeepSeaGreen {
+        color: #436A2D; /* Set color for Deep Sea Green */
+    }
+    
+    #DeepSeaRed {
+        color: #981D1D; /* Set color for Deep Sea Red */
     }
